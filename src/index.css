@@ -1,0 +1,15 @@
+*,*:before, *:after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  width: 50px;
+}
