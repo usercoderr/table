@@ -16,7 +16,8 @@ const Table = ({stores, setData}) => {
 
 
 
-    const handleUpdateValue = (storeId, monthName, newValue) => {
+    const handleUpdateValue = (storeId, monthName, e) => {
+        const  inputValue = e.target.value
         const newData = stores.map(store => {
             if (store.store.id === storeId) {
                 return {
@@ -25,7 +26,7 @@ const Table = ({stores, setData}) => {
                         if (month.name === monthName) {
                             return {
                                 ...month,
-                                value: Number(newValue)
+                                value: Number(inputValue)
                             };
                         }
                         return month;
@@ -69,9 +70,9 @@ const Table = ({stores, setData}) => {
                                 store.months.map(month => (
                                     <td key={month.id}>
                                         <input
-                                            type='number'
+
                                             value={month.value}
-                                            onChange={(e) => handleUpdateValue(store.store.id,month.name, e.target.value )}
+                                            onChange={(e) => handleUpdateValue(store.store.id,month.name, e )}
                                         />
                                     </td>
                                 ))
